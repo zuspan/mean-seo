@@ -17,7 +17,7 @@
   "dependencies": {
     "lodash": "~2.4.x",
     "redis": "~0.10.x",
-    "phantomjs": "~2.1.2",
+    "phantomjs2": "https://github.com/zeevl/phantomjs2.git",
     "mkdirp": "~0.3.x"
   },
   "scripts": {
