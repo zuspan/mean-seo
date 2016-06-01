@@ -1,32 +1,74 @@
 {
-  "name": "mean-seo",
-  "url": "https://github.com/meanjs/mean-seo",
-  "version": "0.0.8",
-  "keywords": [
-    "phantomjs",
-    "headless",
-    "webkit",
-    "mean",
-    "meanjs",
-    "seo"
+  "_args": [
+    [
+      "mean-seo@git+https://github.com/zuspan/mean-seo.git",
+      "/Users/zuspan/composition/15_KOKOWA_CONTINUED/HEROKU/MIRROR/kokowa"
+    ]
   ],
+  "_from": "git+https://github.com/zuspan/mean-seo.git",
+  "_id": "mean-seo@0.0.8",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/mean-seo",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/zuspan/mean-seo/master/package.json",
+      "gitUrl": "git://github.com/zuspan/mean-seo.git",
+      "httpsUrl": "git+https://github.com/zuspan/mean-seo.git",
+      "shortcut": "github:zuspan/mean-seo",
+      "ssh": "git@github.com:zuspan/mean-seo.git",
+      "sshUrl": "git+ssh://git@github.com/zuspan/mean-seo.git",
+      "type": "github"
+    },
+    "name": "mean-seo",
+    "raw": "mean-seo@git+https://github.com/zuspan/mean-seo.git",
+    "rawSpec": "git+https://github.com/zuspan/mean-seo.git",
+    "scope": null,
+    "spec": "git+https://github.com/zuspan/mean-seo.git",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/zuspan/mean-seo.git#3ae22a346d33fd8e8ea5dacf4517d6823098718d",
+  "_shasum": "cd2cf5385ab8cae1c1af17f433c5abda49c06cf7",
+  "_shrinkwrap": null,
+  "_spec": "mean-seo@git+https://github.com/zuspan/mean-seo.git",
+  "_where": "/Users/zuspan/composition/15_KOKOWA_CONTINUED/HEROKU/MIRROR/kokowa",
   "author": {
-    "name": "Roie Cohen and Amos Haviv",
-    "email": "roie.cohen@gmail.com"
+    "email": "roie.cohen@gmail.com",
+    "name": "Roie Cohen and Amos Haviv"
   },
   "dependencies": {
     "lodash": "~2.4.x",
-    "redis": "~0.10.x",
-    "phantomjs2": "~2.1.2",
-    "mkdirp": "~0.3.x"
+    "mkdirp": "~0.3.x",
+    "phantomjs2": "git+https://github.com/zeevl/phantomjs2.git",
+    "redis": "~0.10.x"
   },
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --require should --reporter spec"
-  },
+  "description": "SEO Solution for MEAN.JS applications which forwards crawlers requests to a compiled HTML copy using PhantomJS.",
   "devDependencies": {
     "express": "^4.7.2",
     "mocha": "^1.21.3",
     "request": "^2.39.0",
     "should": "^4.0.4"
-  }
+  },
+  "gitHead": "3ae22a346d33fd8e8ea5dacf4517d6823098718d",
+  "keywords": [
+    "headless",
+    "mean",
+    "meanjs",
+    "phantomjs",
+    "seo",
+    "webkit"
+  ],
+  "name": "mean-seo",
+  "optionalDependencies": {},
+  "readme": "# MEAN-SEO\nSEO Solution for MEAN.JS applications which forwards crawlers requests to a compiled HTML copy using PhantomJS.\n\n## Longer Version\nIf you ever tried to make your AngularJS application crawler friendly, you already know this is a bit of a headache. Part of evolving the MEAN.JS stack towards production ready state, the MEAN-SEO module makes it pretty simple to make sure your MEAN application is ready for crawlers requests.\n\nWhen a crawler requests the page using the [**\\_escaped\\_fragment\\_**](https://developers.google.com/webmasters/ajax-crawling/docs/specification), the module launches the PhantomJS headless-browser, which creates a copy of the page and stores it in cache for future requests. \n\n## Quick Install\nFirst you'll need to install the MEAN-SEO module using npm:\n\n\tnpm install mean-seo --save\n\nThen include in you express application: \n\n\tvar seo = require('mean-seo');\n\nAnd finally, just before you require the **app.router** middleware add the following:\n\t\n\tapp.use(seo({\n\t\tcacheClient: 'disk', // Can be 'disk' or 'redis'\n    \tredisURL: 'redis://:password@hostname:port', // If using redis, optionally specify server credentials\n\t\tcacheDuration: 2 * 60 * 60 * 24 * 1000, // In milliseconds for disk cache\n\t\tcacheBuffer: 200 * 1024 // The the largest amount of data allowed on stdout, used for PhantomJS. Increase this when receiving 'stdout maxBuffer exceeded' errors.\n\t}));\n\t\n\t// app.use(app.router) will be below this line \n\nIf you use HTML5 URL scheme then you should let the crawler know you're serving an AJAX application by adding the following to the HEAD tag of your page:\n\n\t<meta name=”fragment” content=”!”>\n\n## Resources\n  - [Google AJAX Application Guide](https://developers.google.com/webmasters/ajax-crawling/docs/specification)\n  - [A Tutorial About AngularJS SEO](http://www.yearofmoo.com/2012/11/angularjs-and-seo.html)\n\n\n## License\n(The MIT License)\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n'Software'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --require should --reporter spec"
+  },
+  "url": "https://github.com/meanjs/mean-seo",
+  "version": "0.0.8"
 }
