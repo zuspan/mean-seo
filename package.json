@@ -43,7 +43,7 @@
   "dependencies": {
     "lodash": "~2.4.x",
     "mkdirp": "~0.3.x",
-    "phantomjs2": "git+https://github.com/zeevl/phantomjs2.git",
+    "phantomjs": "~1.9.x",
     "redis": "~0.10.x"
   },
   "description": "SEO Solution for MEAN.JS applications which forwards crawlers requests to a compiled HTML copy using PhantomJS.",
